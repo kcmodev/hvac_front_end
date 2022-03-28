@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Button from '@mui/material/Button';
+import { Typography } from '@mui/material';
+import logo from './images/houseIcon.svg';
+import postManualSpray from './utils/api/sprayRequest';
+import getTimestamp from './utils/api/timestampRequest';
 
 function App() {
+  const [time, setTime] = useState('');
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <img src={logo} className='App-logo' alt='logo' />
+      <Typography className={'text'} variant='body1'>
+        Last Spray: {time}
+      </Typography>
+      <Button
+        className={'button'}
+        variant='contained'
+        onClick={async () => {
+          await postManualSpray();
+          let timestamp = await getTimestamp();
+          console.log(`setTime as ${timestamp}`);
+          // @ts-ignore
+            setTime(timestamp);
+        }}
+      >
+        Spray
+      </Button>
+    </>
   );
 }
 

@@ -1,4 +1,4 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+.idea
 
 # dependencies
 /node_modules
@@ -7,9 +7,11 @@
 
 # testing
 /coverage
+/api_testing
 
 # production
 /build
+/src/conf.js
 
 # misc
 .DS_Store

@@ -21,8 +21,8 @@ function App() {
         variant='contained'
         onClick={async () => {
           await postManualSpray();
-          let timestamp = await getTimestamp();
-          console.log(`setTime as ${timestamp}`);
+          const timestamp = await getTimestamp();
+          // console.log(`setTime as ${timestamp}`);
           // @ts-ignore
             setTime(timestamp);
         }}

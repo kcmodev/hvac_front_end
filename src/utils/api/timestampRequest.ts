@@ -12,8 +12,8 @@ const getTimestamp = async () => {
             let date = data['date'];
             let time = data['time'];
             timestamp = `${date} @ ${time}`
-            console.log(`TIMESTAMP: \n "${timestamp}"`)
-            console.log('GET from /timestamp')
+            // console.log(`TIMESTAMP: \n "${timestamp}"`)
+            // console.log('GET from /timestamp')
         })
         .catch(err => console.error(err))
 

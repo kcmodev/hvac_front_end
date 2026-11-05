@@ -1,23 +1,20 @@
-import { PI_IP_ADDR } from '../../conf.js';
+const API_URL = import.meta.env.VITE_API_URL ?? '';
 
 const getTimestamp = async () => {
-    let timestamp;
+    let timestamp: string | undefined;
 
-    await fetch(`http://${PI_IP_ADDR}/timestamp`,
-        {
-            method: 'GET'
+    await fetch(`${API_URL}/timestamp`, {
+        method: 'GET',
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            const date = data['date'];
+            const time = data['time'];
+            timestamp = `${date} @ ${time}`;
         })
-        .then(res => res.json())
-        .then(data => {
-            let date = data['date'];
-            let time = data['time'];
-            timestamp = `${date} @ ${time}`
-            // console.log(`TIMESTAMP: \n "${timestamp}"`)
-            // console.log('GET from /timestamp')
-        })
-        .catch(err => console.error(err))
+        .catch((err) => console.error(err));
 
-    return timestamp
+    return timestamp;
 };
 
 export default getTimestamp;

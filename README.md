@@ -13,7 +13,7 @@ Built with React 18, TypeScript, Material UI and Vite, and tested with Vitest an
 
 ## Getting started
 
-Requires Node.js 18 or newer and a running [controller](https://github.com/kcmodev/pi_hvac_controller).
+Requires Node.js 26 (`nvm use` picks it up from `.nvmrc`) and a running [controller](https://github.com/kcmodev/pi_hvac_controller).
 
 ```bash
 git clone https://github.com/kcmodev/hvac_front_end.git
@@ -34,6 +34,10 @@ This app runs on a different origin from the controller, so two settings have to
 | The controller's `.env` | `CORS_ALLOWED_ORIGIN`: the address this app is served from         | `http://192.168.1.50:3000` |
 
 Without `CORS_ALLOWED_ORIGIN`, the browser hides the controller's responses: the readings show as unavailable, and a spray runs but is reported as a failure. `VITE_API_URL` is read at build time, so rebuild after changing it.
+
+## Deploying
+
+`npm run build` produces static files in `dist/` that any web server can host, including one on the Pi. To try a build from another device on your network, run `npm run preview -- --host`.
 
 ## Scripts
 

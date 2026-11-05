@@ -2,8 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
-import postManualSpray from './utils/api/sprayRequest';
-import getTimestamp from './utils/api/timestampRequest';
+import { postSpray } from './api';
 
 function App() {
     const [time, setTime] = useState('');
@@ -18,9 +17,8 @@ function App() {
                 className={'button'}
                 variant="contained"
                 onClick={async () => {
-                    await postManualSpray();
-                    const timestamp = await getTimestamp();
-                    setTime(timestamp ?? '');
+                    const { date, time } = await postSpray();
+                    setTime(`${date} @ ${time}`);
                 }}
             >
                 Spray

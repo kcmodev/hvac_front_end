@@ -2,7 +2,7 @@
 
 A React control panel for [pi_hvac_controller](https://github.com/kcmodev/pi_hvac_controller), a Raspberry Pi that sprays air freshener into a home's return duct while the HVAC system runs. From a phone or browser, it shows what the system is doing and triggers a spray on demand.
 
-Built with React 18, TypeScript, Material UI and Vite, and tested with Vitest and React Testing Library.
+Built with React 19, TypeScript, Material UI and Vite, and tested with Vitest and React Testing Library.
 
 ## Features
 
